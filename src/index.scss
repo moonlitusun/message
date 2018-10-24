@@ -1,0 +1,31 @@
+.m-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 99999;
+  width: 100%;
+  box-sizing: border-box;
+
+  > .m-message__content-box {
+      opacity: 0;
+      min-width: 100px;
+      padding: 4px 15px;
+      border-radius: 4px;
+      text-align: center;
+      background: rgba(0, 0, 0, .75);
+      color: white;
+      transition: opacity .25s;
+
+      &.is-fade-in {
+        opacity: 1;
+      }
+
+      &.is-fade-out {
+        opacity: 0;
+      }
+
+    }
+
+}
