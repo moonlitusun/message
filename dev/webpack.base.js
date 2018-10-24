@@ -7,7 +7,7 @@ module.exports = env => {
       'Message': './index'
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', 'tsx'],
     },
     output: {
       library: 'TestLib',
@@ -20,6 +20,15 @@ module.exports = env => {
           use: [
             {
               loader: 'babel-loader',
+            },
+          ],
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.ts?$/,
+          use: [
+            {
+              loader: 'ts-loader',
             },
           ],
           exclude: /node_modules/,

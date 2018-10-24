@@ -7,18 +7,17 @@ export default new class message {
 
   static instance = null;
 
-  /**
-   * 模拟set
-   */
-  static mock_set_instance() {
-    document.body.removeChild(message.instance);
-    message.instance = null;
-  }
+  private configuration = {
+    // position
+    place: 'center', 
+    distance: 0,
+
+  };
 
   /**
    * 创建元素
    */
-  static createElement() {
+  private createElement() {
     const _outter_box = document.createElement('section');
     _outter_box.classList.add('m-message');
 
@@ -39,16 +38,17 @@ export default new class message {
     }, 2000);
 
     setTimeout(() => {
-      message.destroyElement();
+      this.destroyElement();
     }, 2500);
   }
 
   /**
    * 删除元素
    */
-  static destroyElement() {
+  private destroyElement(): void {
     if (message.instance) {
-      message.mock_set_instance();
+      document.body.removeChild(message.instance);
+      message.instance = null;
     }
   }
 
@@ -56,11 +56,14 @@ export default new class message {
    * show
    * @param { string | number } content
    */
-  show(content) {
+  public show(content: any = '', duration: number = 2000): void {
+    if (!content) return;
+
     if (message.instance) {
-      message.destroyElement();
+      this.destroyElement();
     }
-    message.createElement();
+
+    this.createElement();
   }
 
 }();
