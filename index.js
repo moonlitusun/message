@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./dist/Message.production.min');
+  module.exports = require('./dist/message.production.min');
 } else {
-  module.exports = require('./dist/Message.development');
+  module.exports = require('./dist/message.development');
 }

@@ -1,18 +1,27 @@
 # Introduction
 
-An awesome libary
+message popup tool
 
-## Install
+# Install
 
 ```shell
-npm install @react-comps/Message
+npm install @react-comps/message
 ```
 
-## Usage
+# Usage
 
 ```jsx
-import TestLib from '@react-comps/Message';
-import '@react-comps/Message/dist/Message.css';
+import TestLib from '@react-comps/message';
+import '@react-comps/message/dist/message.css';
 
 // ...
 ```
+
+# API
+
+## message.show()
+
+| - | - | - | - |
+|--------|--------|
+
+## message.updateConfiguration()

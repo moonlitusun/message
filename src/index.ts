@@ -1,69 +1,126 @@
+/// <reference path="./additional.d.ts" />
+
 import './index.scss';
+//
+import { debounce } from './utils/debounce';
+//
+import { Imessage, Iconfiguration } from './interface';
 
-export default new class message {
-  constructor() {
+class message implements Imessage {
 
-  }
+  private _outter_box: HTMLElement = null;
+  private _inner_box: HTMLElement = null;
 
-  static instance = null;
-
-  private configuration = {
+  private configuration: Iconfiguration = {
     // position
-    place: 'center', 
-    distance: 0,
-
+    place: 'center',
+    distance: '50%',
+    // cssText
+    // cssText: '',
   };
 
   /**
-   * 创建元素
+   * create elment
    */
-  private createElement() {
-    const _outter_box = document.createElement('section');
-    _outter_box.classList.add('m-message');
-
-    const _inner_box = document.createElement('div');
-    _inner_box.innerText = '234';
+  private createElement(): void {
+    if (!this._outter_box) {
+      this._outter_box = document.createElement('section');
+      this._outter_box.classList.add('m-message');
+      document.body.appendChild(this._outter_box);
+    }
+    
+    const _inner_box: HTMLElement = document.createElement('div');
     _inner_box.classList.add('m-message__content-box');
 
-    _outter_box.style.top = `${window.innerHeight / 2 - _inner_box.clientHeight / 2}px`;
-    message.instance = _outter_box;
+    this._outter_box.appendChild(_inner_box);
+    this._inner_box = _inner_box;
+  }
 
-    _outter_box.appendChild(_inner_box);
-    document.body.appendChild(_outter_box);
+  /**
+   * setAttribute
+   */
+  private setAttribute(content: any = '', duration: number, configuration: object): void {
+    const { _outter_box, _inner_box } = this;
+    const active_configuration: any = Object.assign({}, this.configuration, configuration);
     
+    // read content
+    _inner_box.innerText = content;
+
+    // read position configuration
+    const {
+      place,
+      distance,
+    } = active_configuration;
+
+    if (place === 'center') {
+      _outter_box.classList.add('l-center');
+    } else {
+      _outter_box.style[place] = distance;
+      _outter_box.classList.remove('l-center');
+    }
+
+    // read style configuration
+    const { cssText = ' ' } = active_configuration;
+    if (cssText) _inner_box.style.cssText = cssText;
+   
+    // read Animation configuration
+    const len: number = this._outter_box.children.length;
+    const active_duration: number = duration + len * 500;
+
     setTimeout(() => _inner_box.classList.add('is-fade-in'), 0);
     setTimeout(() => {
       _inner_box.classList.remove('is-fade-in');
       _inner_box.classList.add('is-fade-out');
-    }, 2000);
+    }, active_duration);
 
     setTimeout(() => {
       this.destroyElement();
-    }, 2500);
+    }, active_duration + 500);
   }
 
   /**
-   * 删除元素
+   * remove element
    */
   private destroyElement(): void {
-    if (message.instance) {
-      document.body.removeChild(message.instance);
-      message.instance = null;
+    if (this._outter_box) {
+      const _inner_box_list = this._outter_box.children;
+
+      // remove
+      const firstChild: any = _inner_box_list[0];
+      this._outter_box.removeChild(firstChild);
+
+      if (_inner_box_list.length === 0) {
+        document.body.removeChild(this._outter_box);
+        this._outter_box = null;
+        this._inner_box = null;
+      }
     }
   }
 
   /**
-   * show
-   * @param { string | number } content
+   * update global configuration
+   * @param { object } configuration
    */
-  public show(content: any = '', duration: number = 2000): void {
-    if (!content) return;
+  public updateConfiguration(configuration: object = {}): object {
+    Object.assign(this.configuration, configuration);
 
-    if (message.instance) {
-      this.destroyElement();
-    }
-
-    this.createElement();
+    return this.configuration;
   }
 
-}();
+  /**
+   * show element
+   * @param { string | number } content
+   * @param { number } duration
+   * @param { object } configuration
+   */
+  @debounce(1000)
+  public show(content: string | number = '', duration: number = 2000, configuration: object = {}): void {
+    if (!content) return;
+
+    this.createElement();
+    this.setAttribute(content, duration, configuration);
+  }
+
+};
+
+export default new message();

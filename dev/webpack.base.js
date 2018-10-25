@@ -4,13 +4,13 @@ module.exports = env => {
   return {
     context: path.resolve(__dirname, '../src/'),
     entry: {
-      'Message': './index'
+      'message': './index'
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', 'tsx'],
     },
     output: {
-      library: 'TestLib',
+      library: 'message',
       libraryTarget: 'umd',
     },
     module: {

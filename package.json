@@ -1,8 +1,8 @@
 {
-  "name": "@react-comps/Message",
+  "name": "@react-comps/message",
   "version": "0.0.1",
   "description": "An awesome libary",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "clean": "rimraf dist/",
     "dist": "npm run clean && webpack --config ./dev/webpack.config.js",
