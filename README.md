@@ -4,24 +4,79 @@ message popup tool
 
 # Install
 
+npm
+
 ```shell
 npm install @react-comps/message
+```
+
+yarn
+
+```shell
+yarn add @react-comps/message
 ```
 
 # Usage
 
 ```jsx
-import TestLib from '@react-comps/message';
+import message from '@react-comps/message';
 import '@react-comps/message/dist/message.css';
 
 // ...
+const config = {
+  // position
+  place: 'top', // top | center | bottom
+  distance: '50px', // 50px | 30% (When `place = center` don't can ignore)
+
+  /**
+   * css Text
+   */
+  cssText: 'background: rbga(0, 0, 0); color: red', // inline style
+};
+
+hasbtn.onclick = function () {
+  message.show('bad request！', 5000, config);
+}
+
+configbtn.onclick = function() {
+  message.updateConfiguration(config);
+}
+
+nobtn.onclick = function () {
+  message.show('bad request!');
+}
 ```
 
 # API
 
-## message.show()
+## show
 
-| - | - | - | - |
-|--------|--------|
+```js
+message.show(
+  content: string | number = '',
+  duration: number = 2000,
+  configuration: object = {
+    place: 'center',
+    distance: '50%',
+  }
+  );
+```
 
-## message.updateConfiguration()
+## updateConfiguration
+
+update global configuration
+
+```js
+const config = {
+  // position
+  place: 'top', // top | center | bottom
+  distance: '50px', // 50px | 30% (When `place = center` don't can ignore)
+
+  /**
+   * css Text
+   */
+  cssText: 'background: rbga(0, 0, 0); color: red', // inline style
+};
+
+message.updateConfiguration(config);
+```

@@ -1,6 +1,6 @@
 {
   "name": "@react-comps/message",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An awesome libary",
   "main": "index.js",
   "scripts": {
@@ -52,7 +52,7 @@
     "ts-loader": "^5.2.2",
     "typescript": "^3.1.3",
     "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
+    "webpack-cli": "^3.1.2",
     "webpack-merge": "^4.1.2",
     "webpack-serve": "^0.3.1",
     "whatwg-fetch": "^2.0.4"
