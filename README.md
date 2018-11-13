@@ -7,13 +7,13 @@ message popup tool
 npm
 
 ```shell
-npm install @react-comps/message
+npm install @react-comp/message
 ```
 
 yarn
 
 ```shell
-yarn add @react-comps/message
+yarn add @react-comp/message
 ```
 
 # Demo
