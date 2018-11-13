@@ -16,6 +16,10 @@ yarn
 yarn add @react-comps/message
 ```
 
+# Demo
+
+[demo](https://react-comps.github.io/message/)
+
 # Usage
 
 ```jsx

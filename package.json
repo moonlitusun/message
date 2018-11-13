@@ -1,6 +1,6 @@
 {
-  "name": "@react-comps/message",
-  "version": "0.0.2",
+  "name": "@react-comp/message",
+  "version": "1.0.3",
   "description": "An awesome libary",
   "main": "index.js",
   "scripts": {
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/react-comps/message"
   },
-  "author": "sunsunny",
+  "author": "moonlit",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/react-comps/message/issues"
   },
   "homepage": "",
   "devDependencies": {
