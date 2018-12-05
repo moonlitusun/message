@@ -18,13 +18,13 @@ yarn add @react-comp/message
 
 # Demo
 
-[demo](https://react-comps.github.io/message/)
+[demo](https://react-comp.github.io/message/)
 
 # Usage
 
 ```jsx
-import message from '@react-comps/message';
-import '@react-comps/message/dist/message.css';
+import message from '@react-comp/message';
+import '@react-comp/message/dist/message.css';
 
 // ...
 const config = {
