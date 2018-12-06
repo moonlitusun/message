@@ -1,8 +1,17 @@
 {
   "name": "@react-comp/message",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An awesome libary",
   "main": "index.js",
+  "keywords": [
+    "message",
+    "react",
+    "react-component",
+    "component",
+    "components",
+    "ui",
+    "frontend"
+  ],
   "scripts": {
     "clean": "rimraf dist/",
     "dist": "npm run clean && webpack --config ./dev/webpack.config.js",
@@ -24,7 +33,12 @@
   "bugs": {
     "url": "https://github.com/react-comps/message/issues"
   },
-  "homepage": "",
+  "files": [
+    "dist",
+    "index.js",
+    "CHANGELOG.md"
+  ],
+  "homepage": "https://react-comp.github.io/message/",
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
