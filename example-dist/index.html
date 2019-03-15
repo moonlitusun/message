@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>react-comp/message</title>
+  <link rel="stylesheet" href="./css/index.css">
 </head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 20px;
+  }
+
+  textarea {
+    padding: 12px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .btn-group {
+    margin-top: 20px;
+  }
+
+  button {
+    height: 50px;
+    margin-right: 15px;
+    padding: 15px;
+  }
+</style>
+
 <body>
-  <input type="text">
-  <button id="hasbtn">带配置</button>
-  <button id="configbtn">更新全局配置</button>
-  <button id="nobtn">无配置</button>
+  <textarea name="" cols="30" rows="10" id="valIpt" placeholder="default value"></textarea>
+
+  <textarea name="" value=" " cols="30" rows="10" id="cssIpt" placeholder="default style"></textarea>
+
+  <div class="btn-group">
+    <button id="hasConfigBtn">With configuration</button>
+    <button id="updateConfigBtn">Update global configuration</button>
+    <button id="noConfigBtn">No configuration</button>
+  </div>
 <script type="text/javascript" src="example.js"></script></body>
+
 </html>
