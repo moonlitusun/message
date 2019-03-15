@@ -1,8 +1,11 @@
 import message from '../../src/index';
 
-var hasbtn = document.getElementById('hasbtn');
-var configbtn = document.getElementById('configbtn');
-var nobtn = document.getElementById('nobtn');
+const
+  valIpt = document.getElementById('valIpt'),
+  cssIpt = document.getElementById('cssIpt'),
+  hasConfigBtn =  document.getElementById('hasConfigBtn'),
+  updateConfigBtn = document.getElementById('updateConfigBtn'),
+  noConfigBtn = document.getElementById('noConfigBtn');
 
 const config = {
   // position
@@ -15,14 +18,21 @@ const config = {
   cssText: 'background: rbga(0, 0, 0); color: red', // inline style
 };
 
-hasbtn.onclick = function () {
-  message.show('bad request！', 5000, config);
+hasConfigBtn.onclick = function () {
+  const value = valIpt.value;
+  const config = JSON.parse(cssIpt.value || {});
+
+  message.show(value || 'no Data', 2000, config);
 }
 
-configbtn.onclick = function() {
+updateConfigBtn.onclick = function() {
+  cssIpt.value = JSON.stringify(config);
+
   message.updateConfiguration(config);
 }
 
-nobtn.onclick = function () {
-  message.show('bad request!');
+noConfigBtn.onclick = function () {
+  const value = valIpt.value;
+
+  message.show(value || 'no Data', 2000);
 }

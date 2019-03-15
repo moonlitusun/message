@@ -1,5 +1,4 @@
 /// <reference path="./additional.d.ts" />
-
 import './index.scss';
 //
 import { debounce } from './utils/debounce';
@@ -21,6 +20,7 @@ class message implements Imessage {
 
   /**
    * create elment
+   *
    */
   private createElement(): void {
     if (!this._outter_box) {
@@ -38,6 +38,7 @@ class message implements Imessage {
 
   /**
    * setAttribute
+   *
    */
   private setAttribute(content: any = '', duration: number, configuration: object): void {
     const { _outter_box, _inner_box } = this;
@@ -62,15 +63,14 @@ class message implements Imessage {
     // read style configuration
     const { cssText = ' ' } = active_configuration;
     if (cssText) _inner_box.style.cssText = cssText;
-   
+
     // read Animation configuration
     const len: number = this._outter_box.children.length;
     const active_duration: number = duration + len * 500;
 
     setTimeout(() => _inner_box.classList.add('is-fade-in'), 0);
     setTimeout(() => {
-      _inner_box.classList.remove('is-fade-in');
-      _inner_box.classList.add('is-fade-out');
+      _inner_box.classList.replace('is-fade-in', 'is-fade-out');
     }, active_duration);
 
     setTimeout(() => {
@@ -80,6 +80,7 @@ class message implements Imessage {
 
   /**
    * remove element
+   *
    */
   private destroyElement(): void {
     if (this._outter_box) {
@@ -99,6 +100,7 @@ class message implements Imessage {
 
   /**
    * update global configuration
+   *
    * @param { object } configuration
    */
   public updateConfiguration(configuration: object = {}): object {
@@ -109,11 +111,12 @@ class message implements Imessage {
 
   /**
    * show element
-   * @param { string | number } content
+   *
+   * @param { string | number } content the content to show
    * @param { number } duration
    * @param { object } configuration
    */
-  @debounce(1000)
+  // @debounce(1000)
   public show(content: string | number = '', duration: number = 2000, configuration: object = {}): void {
     if (!content) return;
 

@@ -1,3 +1,5 @@
+@import './css/animate.scss';
+
 .m-message {
   position: fixed;
   left: 0;
@@ -35,9 +37,12 @@
 
 // is
 .is-fade-in {
+  transition: all 0.8s;
   opacity: 1;
 }
 
 .is-fade-out {
+  transition: all 0.8s;
+  margin-top: -30px; 
   opacity: 0;
 }
