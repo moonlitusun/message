@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
       "outDir": "./dist",
-      "allowJs": true,
-      "target": "es6",
       "experimentalDecorators": true, // 装饰器
+      "declaration": true
   },
   "include": [
       "./src/**/*"

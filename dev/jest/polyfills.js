@@ -1,5 +1,5 @@
 // fetch() polyfill for making API calls.
-require('whatwg-fetch');
+// require('whatwg-fetch');
 
 
 // In tests, polyfill requestAnimationFrame since jsdom doesn't provide it yet.
