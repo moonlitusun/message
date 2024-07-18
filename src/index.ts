@@ -6,7 +6,6 @@ import { debounce } from './utils/debounce';
 import { Imessage, Iconfiguration } from './interface';
 
 class message implements Imessage {
-
   private _outter_box: HTMLElement = null;
   private _inner_box: HTMLElement = null;
 
@@ -28,7 +27,7 @@ class message implements Imessage {
       this._outter_box.classList.add('m-message');
       document.body.appendChild(this._outter_box);
     }
-    
+
     const _inner_box: HTMLElement = document.createElement('div');
     _inner_box.classList.add('m-message__content-box');
 
@@ -40,18 +39,23 @@ class message implements Imessage {
    * setAttribute
    *
    */
-  private setAttribute(content: any = '', duration: number, configuration: object): void {
+  private setAttribute(
+    content: any = '',
+    duration: number,
+    configuration: object
+  ): void {
     const { _outter_box, _inner_box } = this;
-    const active_configuration: any = Object.assign({}, this.configuration, configuration);
-    
+    const active_configuration: any = Object.assign(
+      {},
+      this.configuration,
+      configuration
+    );
+
     // read content
     _inner_box.innerText = content;
 
     // read position configuration
-    const {
-      place,
-      distance,
-    } = active_configuration;
+    const { place, distance } = active_configuration;
 
     if (place === 'center') {
       _outter_box.classList.add('l-center');
@@ -117,13 +121,16 @@ class message implements Imessage {
    * @param { object } configuration
    */
   // @debounce(1000)
-  public show(content: string | number = '', duration: number = 2000, configuration: object = {}): void {
+  public show(
+    content: string | number = '',
+    duration: number = 2000,
+    configuration: object = {}
+  ): void {
     if (!content) return;
 
     this.createElement();
     this.setAttribute(content, duration, configuration);
   }
-
-};
+}
 
 export default new message();

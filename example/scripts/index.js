@@ -1,9 +1,9 @@
 import message from '../../src/index';
 
-const
-  valIpt = document.getElementById('valIpt'),
+console.log(message);
+const valIpt = document.getElementById('valIpt'),
   cssIpt = document.getElementById('cssIpt'),
-  hasConfigBtn =  document.getElementById('hasConfigBtn'),
+  hasConfigBtn = document.getElementById('hasConfigBtn'),
   updateConfigBtn = document.getElementById('updateConfigBtn'),
   noConfigBtn = document.getElementById('noConfigBtn');
 
@@ -20,19 +20,19 @@ const config = {
 
 hasConfigBtn.onclick = function () {
   const value = valIpt.value;
-  const config = JSON.parse(cssIpt.value || {});
+  const config = JSON.parse(cssIpt.value || '{}');
 
   message.show(value || 'no Data', 2000, config);
-}
+};
 
-updateConfigBtn.onclick = function() {
+updateConfigBtn.onclick = function () {
   cssIpt.value = JSON.stringify(config);
 
   message.updateConfiguration(config);
-}
+};
 
 noConfigBtn.onclick = function () {
   const value = valIpt.value;
 
   message.show(value || 'no Data', 2000);
-}
+};
