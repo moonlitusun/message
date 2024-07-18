@@ -1,7 +1,7 @@
 /**
  * interface class message
  */
-export interface Imessage {
+export interface Message {
   show();
   updateConfiguration();
 }

@@ -22,7 +22,7 @@ hasConfigBtn.onclick = function () {
   const value = valIpt.value;
   const config = JSON.parse(cssIpt.value || '{}');
 
-  message.show(value || 'no Data', 2000, config);
+  message.show(value || 'no Data', 1000, config);
 };
 
 updateConfigBtn.onclick = function () {

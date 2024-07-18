@@ -13,7 +13,7 @@
 
 .m-message__content-box {
   opacity: 0;
-  transition: opacity .25s;
+  transition: opacity 0.25s;
   min-width: 100px;
   max-width: 50%;
   padding: 4px 15px;
@@ -21,12 +21,11 @@
   text-align: center;
   word-break: break-all;
   color: white;
-  background: rgba(0, 0, 0, .75);
+  background: rgba(0, 0, 0, 0.75);
 
   &:not(:first-of-type) {
     margin-top: 10px;
   }
-
 }
 
 // layout
@@ -35,14 +34,18 @@
   transform: translateY(-50%);
 }
 
+.l-top {
+  top: 5% !important;
+}
+
 // is
 .is-fade-in {
-  transition: all 0.8s;
+  transition: all 0.5s;
   opacity: 1;
 }
 
 .is-fade-out {
-  transition: all 0.8s;
-  margin-top: -30px; 
+  transition: all 0.5s;
+  // margin-top: -30px;
   opacity: 0;
 }

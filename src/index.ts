@@ -3,15 +3,15 @@ import './index.scss';
 //
 import { debounce } from './utils/debounce';
 //
-import { Imessage, Iconfiguration } from './interface';
+import { Message, Iconfiguration } from './interface';
 
-class message implements Imessage {
+class message implements Message {
   private _outter_box: HTMLElement = null;
   private _inner_box: HTMLElement = null;
 
   private configuration: Iconfiguration = {
     // position
-    place: 'center',
+    place: 'top',
     distance: '50%',
     // cssText
     // cssText: '',
@@ -62,7 +62,7 @@ class message implements Imessage {
     } else {
       _outter_box.style[place] = distance;
       _outter_box.classList.remove('l-center');
-    }
+    } 
 
     // read style configuration
     const { cssText = ' ' } = active_configuration;
