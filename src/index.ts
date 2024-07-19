@@ -3,19 +3,27 @@ import './index.scss';
 //
 import { debounce } from './utils/debounce';
 //
-import { Message, Iconfiguration } from './interface';
+import { Message, Configuration } from './interface';
 
 class message implements Message {
   private _outter_box: HTMLElement = null;
   private _inner_box: HTMLElement = null;
+  private _inner_box_cache: HTMLElement = null;
 
-  private configuration: Iconfiguration = {
+  private configuration: Configuration = {
     // position
     place: 'top',
-    distance: '50%',
+    distance: '5%',
     // cssText
     // cssText: '',
   };
+
+  constructor() {
+    const _inner_box_cache: HTMLElement = document.createElement('div');
+    _inner_box_cache.classList.add('m-message__content-box');
+
+    this._inner_box_cache = _inner_box_cache;
+  }
 
   /**
    * create elment
@@ -28,8 +36,9 @@ class message implements Message {
       document.body.appendChild(this._outter_box);
     }
 
-    const _inner_box: HTMLElement = document.createElement('div');
-    _inner_box.classList.add('m-message__content-box');
+    const _inner_box = this._inner_box_cache.cloneNode(true) as HTMLElement;
+    // set dataset
+    _inner_box.dataset['key'] = 'test'
 
     this._outter_box.appendChild(_inner_box);
     this._inner_box = _inner_box;
@@ -52,7 +61,7 @@ class message implements Message {
     );
 
     // read content
-    _inner_box.innerText = content;
+    _inner_box.innerHTML = content;
 
     // read position configuration
     const { place, distance } = active_configuration;
@@ -87,6 +96,7 @@ class message implements Message {
    *
    */
   private destroyElement(): void {
+    // FIXME: set display to remove once
     if (this._outter_box) {
       const _inner_box_list = this._outter_box.children;
 
@@ -128,6 +138,8 @@ class message implements Message {
   ): void {
     if (!content) return;
 
+    console.log(this._inner_box, this._outter_box);
+    
     this.createElement();
     this.setAttribute(content, duration, configuration);
   }

@@ -14,9 +14,10 @@ type type_place = 'top' | 'center' | 'bottom';
 /**
  * interface configuration
  */
-export interface Iconfiguration {
-  place: type_place,
+export interface Configuration {
+  place?: type_place,
   distance: string,
+  key?: string;
   //
   cssText?: string,
 };

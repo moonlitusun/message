@@ -33,6 +33,7 @@ updateConfigBtn.onclick = function () {
 
 noConfigBtn.onclick = function () {
   const value = valIpt.value;
+  const time = Math.floor(Math.random() * 10000);
 
-  message.show(value || 'no Data', 2000);
+  message.show(value || `no Data${time}`, time);
 };
