@@ -14,10 +14,9 @@
   ],
   "scripts": {
     "clean": "rimraf dist/",
-    "build": "npm run clean && webpack --config ./dev/webpack.config.js",
+    "build": "pnpm run clean && webpack --config ./dev/webpack.config.js",
     "example": "webpack --config ./dev/webpack.example.js",
     "start": "node ./dev/serve.js",
-    "prepublishOnly": "pnpm run build && pnpm run example",
     "pub": "npm publish --access public",
     "test": "node ./dev/jest/start.js",
     "test:coverage": "npm run test -- --coverage",

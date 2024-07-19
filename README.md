@@ -7,13 +7,13 @@ message popup tool
 npm
 
 ```shell
-npm install @react-comp/message
+npm install @dz-web/message
 ```
 
 yarn
 
 ```shell
-yarn add @react-comp/message
+yarn add @dz-web/message
 ```
 
 # Demo
@@ -23,8 +23,8 @@ yarn add @react-comp/message
 # Usage
 
 ```jsx
-import message from '@react-comp/message';
-import '@react-comp/message/dist/message.css';
+import message from '@dz-web/message';
+import '@dz-web/message/dist/message.css';
 
 // ...
 const config = {
