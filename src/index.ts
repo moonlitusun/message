@@ -1,11 +1,10 @@
-/// <reference path="./additional.d.ts" />
 import './index.scss';
 //
 import { debounce } from './utils/debounce';
 //
 import { Message, Configuration } from './interface';
 
-class message implements Message {
+class MessageC implements Message {
   private _outter_box: HTMLElement = null;
   private _inner_box: HTMLElement = null;
   private _inner_box_cache: HTMLElement = null;
@@ -38,7 +37,7 @@ class message implements Message {
 
     const _inner_box = this._inner_box_cache.cloneNode(true) as HTMLElement;
     // set dataset
-    _inner_box.dataset['key'] = 'test'
+    _inner_box.dataset['key'] = 'test';
 
     this._outter_box.appendChild(_inner_box);
     this._inner_box = _inner_box;
@@ -71,7 +70,7 @@ class message implements Message {
     } else {
       _outter_box.style[place] = distance;
       _outter_box.classList.remove('l-center');
-    } 
+    }
 
     // read style configuration
     const { cssText = ' ' } = active_configuration;
@@ -139,10 +138,12 @@ class message implements Message {
     if (!content) return;
 
     console.log(this._inner_box, this._outter_box);
-    
+
     this.createElement();
     this.setAttribute(content, duration, configuration);
   }
 }
 
-export default new message();
+export const message = new MessageC();
+
+export default message;

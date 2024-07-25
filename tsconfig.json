@@ -6,5 +6,5 @@
   },
   "include": [
       "./src/**/*"
-  ]
+, "additional.d.ts"  ]
 }

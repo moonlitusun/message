@@ -1,8 +1,9 @@
 {
   "name": "@dz-web/message",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "An awesome libary",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "message",
     "react",
