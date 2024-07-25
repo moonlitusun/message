@@ -42,8 +42,8 @@ importers:
         specifier: ^22.4.3
         version: 22.4.4
       postcss:
-        specifier: ^6.0.21
-        version: 6.0.23
+        specifier: ^8.4.31
+        version: 8.4.31
       postcss-loader:
         specifier: ^2.1.3
         version: 2.1.6
@@ -2600,6 +2600,11 @@ packages:
   nanobus@4.5.0:
     resolution: {integrity: sha512-7sBZo9wthqNJ7QXnfVXZL7fkKJLN55GLOdX+RyZT34UOvxxnFtJe/c7K0ZRLAKOvaY1xJThFFn0Usw2H9R6Frg==}
 
+  nanoid@3.3.7:
+    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   nanomatch@1.2.13:
     resolution: {integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==}
     engines: {node: '>=0.10.0'}
@@ -3018,6 +3023,10 @@ packages:
   postcss@6.0.23:
     resolution: {integrity: sha512-soOk1h6J3VMTZtVeVpv15/Hpdl2cBLX3CAw4TAbkpTJiNPk9YP/zWcD1ND+xEtvyuuvKzbxliTOIyvkSeSJ6ag==}
     engines: {node: '>=4.0.0'}
+
+  postcss@8.4.31:
+    resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
+    engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -7533,6 +7542,8 @@ snapshots:
       nanotiming: 7.3.1
       remove-array-items: 1.1.1
 
+  nanoid@3.3.7: {}
+
   nanomatch@1.2.13(supports-color@6.1.0):
     dependencies:
       arr-diff: 4.0.0
@@ -8054,6 +8065,12 @@ snapshots:
       chalk: 2.4.2
       source-map: 0.6.1
       supports-color: 5.5.0
+
+  postcss@8.4.31:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.1
+      source-map-js: 1.2.0
 
   prelude-ls@1.1.2: {}
 
