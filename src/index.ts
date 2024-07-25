@@ -144,6 +144,6 @@ class MessageC implements Message {
   }
 }
 
-export const message = new MessageC();
+const message = new MessageC();
 
 export default message;
